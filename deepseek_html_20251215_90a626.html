@@ -1,0 +1,1474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Hostings & IT Services | Digital Growth System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Light Theme (Day Mode) */
+            --primary-bg: #f8f9fa;
+            --secondary-bg: #ffffff;
+            --accent-color: #0066ff;
+            --accent-dark: #0052d4;
+            --text-primary: #121826;
+            --text-secondary: #4a5568;
+            --text-light: #718096;
+            --card-bg: #ffffff;
+            --border-color: #e2e8f0;
+            --shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+            --hero-gradient: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            --section-gradient: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            --overlay: rgba(255, 255, 255, 0.9);
+            --nav-bg: rgba(255, 255, 255, 0.95);
+            --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .dark-theme {
+            /* Dark Theme (Night Mode) */
+            --primary-bg: #0a0e17;
+            --secondary-bg: #121826;
+            --accent-color: #4cc9f0;
+            --accent-dark: #3aafd6;
+            --text-primary: #f7fafc;
+            --text-secondary: #cbd5e0;
+            --text-light: #a0aec0;
+            --card-bg: #1a2035;
+            --border-color: #2d3748;
+            --shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            --hero-gradient: linear-gradient(135deg, #0a0e17 0%, #121826 100%);
+            --section-gradient: linear-gradient(135deg, #121826 0%, #0a0e17 100%);
+            --overlay: rgba(10, 14, 23, 0.9);
+            --nav-bg: rgba(10, 14, 23, 0.95);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--primary-bg);
+            color: var(--text-primary);
+            transition: var(--transition);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, .logo-text {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 25px 0;
+            background-color: var(--nav-bg);
+            backdrop-filter: blur(10px);
+            transition: var(--transition);
+            border-bottom: 1px solid transparent;
+        }
+
+        .scrolled {
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border-color);
+            box-shadow: var(--shadow);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--accent-color);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: white;
+            font-size: 24px;
+            transition: var(--transition);
+        }
+
+        .logo-text {
+            font-size: 28px;
+            font-weight: 900;
+            color: var(--text-primary);
+        }
+
+        .logo-text span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 40px;
+            position: relative;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 16px;
+            transition: var(--transition);
+            position: relative;
+            padding: 8px 0;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-color);
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .theme-toggle {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--secondary-bg);
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 20px;
+            color: var(--text-primary);
+        }
+
+        .theme-toggle:hover {
+            background-color: var(--accent-color);
+            color: white;
+            transform: rotate(30deg);
+        }
+
+        .contact-btn {
+            padding: 12px 30px;
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .contact-btn:hover {
+            background-color: var(--accent-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 102, 255, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 180px 0 100px;
+            background: var(--hero-gradient);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.15;
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 14px;
+            letter-spacing: 2px;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .hero h1 {
+            font-size: 5rem;
+            line-height: 1.1;
+            margin-bottom: 30px;
+            background: linear-gradient(to right, var(--text-primary), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            color: var(--text-secondary);
+            margin-bottom: 50px;
+            max-width: 700px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn-secondary {
+            padding: 15px 35px;
+            background-color: transparent;
+            color: var(--accent-color);
+            border: 2px solid var(--accent-color);
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--accent-color);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 100px 0;
+            background: var(--section-gradient);
+        }
+
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: var(--card-bg);
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid var(--border-color);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-color);
+        }
+
+        .stat-number {
+            font-size: 4rem;
+            font-weight: 900;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+            line-height: 1;
+        }
+
+        .stat-text {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 120px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .section-header h2 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: var(--text-primary);
+        }
+
+        .section-header p {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .service-card {
+            background-color: var(--card-bg);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid var(--border-color);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--accent-color), var(--accent-dark));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s ease;
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-color);
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--accent-color), var(--accent-dark));
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+            color: white;
+            font-size: 30px;
+            transition: var(--transition);
+        }
+
+        .service-card:hover .service-icon {
+            transform: rotate(10deg) scale(1.1);
+        }
+
+        .service-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--text-primary);
+        }
+
+        .service-card p {
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+            flex-grow: 1;
+        }
+
+        .service-link {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .service-link i {
+            margin-left: 10px;
+            transition: var(--transition);
+        }
+
+        .service-link:hover {
+            color: var(--accent-dark);
+        }
+
+        .service-link:hover i {
+            transform: translateX(5px);
+        }
+
+        /* Process Section */
+        .process {
+            padding: 120px 0;
+            background: var(--section-gradient);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .process::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.05;
+            z-index: 0;
+        }
+
+        .process-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .process-step {
+            text-align: center;
+            padding: 40px 30px;
+            background-color: var(--card-bg);
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid var(--border-color);
+            position: relative;
+        }
+
+        .process-step:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-color);
+        }
+
+        .step-number {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--accent-color), var(--accent-dark));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            font-weight: 800;
+            margin: 0 auto 30px;
+            position: relative;
+            z-index: 1;
+            transition: var(--transition);
+        }
+
+        .process-step:hover .step-number {
+            transform: scale(1.1) rotate(10deg);
+        }
+
+        .process-step h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--text-primary);
+        }
+
+        .process-step p {
+            color: var(--text-secondary);
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 120px 0;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .testimonial-card {
+            background-color: var(--card-bg);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid var(--border-color);
+            position: relative;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-color);
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            left: 30px;
+            font-size: 100px;
+            color: var(--accent-color);
+            opacity: 0.1;
+            font-family: serif;
+            line-height: 1;
+        }
+
+        .testimonial-text {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+            font-style: italic;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: var(--accent-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            font-weight: 700;
+            margin-right: 20px;
+        }
+
+        .author-info h4 {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+            color: var(--text-primary);
+        }
+
+        .author-info p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 120px 0;
+            background: var(--section-gradient);
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 60px;
+        }
+
+        .contact-info h3 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: var(--text-primary);
+        }
+
+        .contact-details {
+            margin-top: 40px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 30px;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--accent-color);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+
+        .contact-text h4 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+
+        .contact-text p {
+            color: var(--text-secondary);
+        }
+
+        .contact-form {
+            background-color: var(--card-bg);
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 15px 20px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            background-color: var(--primary-bg);
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.1);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .form-status {
+            padding: 15px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            text-align: center;
+            display: none;
+        }
+
+        .form-status.success {
+            background-color: rgba(72, 187, 120, 0.1);
+            color: #48bb78;
+            border: 1px solid rgba(72, 187, 120, 0.3);
+            display: block;
+        }
+
+        .form-status.error {
+            background-color: rgba(245, 101, 101, 0.1);
+            color: #f56565;
+            border: 1px solid rgba(245, 101, 101, 0.3);
+            display: block;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary-bg);
+            padding: 80px 0 30px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            margin-bottom: 60px;
+        }
+
+        .footer-col h3 {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            color: var(--text-primary);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-color);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .social-links a {
+            width: 45px;
+            height: 45px;
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: var(--transition);
+            border: 1px solid var(--border-color);
+        }
+
+        .social-links a:hover {
+            background-color: var(--accent-color);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .fade-in.delay-1 { animation-delay: 0.2s; }
+        .fade-in.delay-2 { animation-delay: 0.4s; }
+        .fade-in.delay-3 { animation-delay: 0.6s; }
+        .fade-in.delay-4 { animation-delay: 0.8s; }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .hero h1 { font-size: 4rem; }
+            .section-header h2 { font-size: 3rem; }
+        }
+
+        @media (max-width: 992px) {
+            .container { padding: 0 30px; }
+            .hero h1 { font-size: 3.5rem; }
+            .services-grid { grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
+            .testimonials-grid { grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); }
+        }
+
+        @media (max-width: 768px) {
+            nav ul { display: none; }
+            .hero h1 { font-size: 2.8rem; }
+            .hero p { font-size: 1.2rem; }
+            .section-header h2 { font-size: 2.5rem; }
+            .services-grid { grid-template-columns: 1fr; }
+            .testimonials-grid { grid-template-columns: 1fr; }
+            .contact-container { grid-template-columns: 1fr; }
+            .hero-buttons { flex-direction: column; }
+            .btn, .btn-secondary { width: 100%; text-align: center; }
+        }
+
+        @media (max-width: 576px) {
+            .container { padding: 0 20px; }
+            .hero h1 { font-size: 2.3rem; }
+            .logo-text { font-size: 22px; }
+            .contact-form { padding: 30px; }
+        }
+    </style>
+</head>
+<body class="light-theme">
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-crown"></i>
+                </div>
+                <div class="logo-text">Elite<span>Hostings</span></div>
+            </a>
+            
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#process">Process</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-actions">
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <a href="#contact" class="contact-btn">Start Project</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-bg"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-tag fade-in">Digital Growth System</div>
+                <h1 class="fade-in">END-TO-END DIGITAL SOLUTIONS FOR DISRUPTIVE BRANDS</h1>
+                <p class="fade-in delay-1">We provide a complete digital ecosystem - from high-end web development to AI automation. You focus on your product, we'll handle everything else with Elite Hostings & IT Services.</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="contact-btn fade-in delay-2">Start Your Project</a>
+                    <a href="#services" class="btn-secondary fade-in delay-3">Our Services</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-container">
+                <div class="stat-card fade-in">
+                    <div class="stat-number" data-count="200">0</div>
+                    <div class="stat-text">Projects Delivered</div>
+                </div>
+                <div class="stat-card fade-in delay-1">
+                    <div class="stat-number" data-count="50">0</div>
+                    <div class="stat-text">Happy Clients</div>
+                </div>
+                <div class="stat-card fade-in delay-2">
+                    <div class="stat-number" data-count="10">0</div>
+                    <div class="stat-text">Years Experience</div>
+                </div>
+                <div class="stat-card fade-in delay-3">
+                    <div class="stat-number" data-count="24">0</div>
+                    <div class="stat-text">Hours Support</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>OUR DIGITAL GROWTH SERVICES</h2>
+                <p>A complete ecosystem to scale your brand online. You handle product/supply — we manage everything else.</p>
+            </div>
+            
+            <div class="services-grid">
+                <!-- Services will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process" id="process">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>OUR PROVEN PROCESS</h2>
+                <p>A strategic approach that delivers exceptional results for brands of all sizes.</p>
+            </div>
+            
+            <div class="process-content">
+                <div class="process-steps">
+                    <div class="process-step fade-in">
+                        <div class="step-number">1</div>
+                        <h3>Strategy & Discovery</h3>
+                        <p>Deep dive into your business goals, target audience, and competitive landscape to craft a winning strategy.</p>
+                    </div>
+                    
+                    <div class="process-step fade-in delay-1">
+                        <div class="step-number">2</div>
+                        <h3>Design & Development</h3>
+                        <p>Create stunning, functional digital assets that align with your brand and drive user engagement.</p>
+                    </div>
+                    
+                    <div class="process-step fade-in delay-2">
+                        <div class="step-number">3</div>
+                        <h3>Implementation</h3>
+                        <p>Deploy all systems with precision, ensuring seamless integration and optimal performance.</p>
+                    </div>
+                    
+                    <div class="process-step fade-in delay-3">
+                        <div class="step-number">4</div>
+                        <h3>Growth & Optimization</h3>
+                        <p>Continuously monitor, analyze, and optimize all digital touchpoints to maximize ROI.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>CLIENT TESTIMONIALS</h2>
+                <p>See what our clients have to say about working with Elite Hostings & IT Services.</p>
+            </div>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-text">
+                        "Elite Hostings transformed our digital presence completely. Their end-to-end approach allowed us to focus on our core business while they handled everything digital. Our online sales increased by 300% in just 6 months."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">RK</div>
+                        <div class="author-info">
+                            <h4>Rajesh Kumar</h4>
+                            <p>CEO, TechSolutions India</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card fade-in delay-1">
+                    <div class="testimonial-text">
+                        "The AI automation and CRM systems they implemented have saved us countless hours. Their team is responsive, innovative, and truly understands the digital landscape. A game-changer for our business."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">PM</div>
+                        <div class="author-info">
+                            <h4>Priya Mehta</h4>
+                            <p>Marketing Director, UrbanFashion</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card fade-in delay-2">
+                    <div class="testimonial-text">
+                        "From website redesign to social media management, Elite Hostings handles it all seamlessly. Their 24/7 support gives us peace of mind knowing our digital assets are always running smoothly."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">AS</div>
+                        <div class="author-info">
+                            <h4>Amit Shah</h4>
+                            <p>Founder, GreenLeaf Organics</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>CONNECT WITH US</h2>
+                <p>Start your digital transformation journey today. Get in touch with our team in Gujarat.</p>
+            </div>
+            
+            <div class="contact-container">
+                <div class="contact-info fade-in">
+                    <h3>Get In Touch</h3>
+                    <p>Ready to transform your digital presence? Our team in Gujarat is ready to help you build a complete digital growth system for your brand.</p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Our Location</h4>
+                                <p>Gujarat, India</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Contact Number</h4>
+                                <p>+91 9909708074</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Working Hours</h4>
+                                <p>Monday - Friday: 9:00 AM - 7:00 PM</p>
+                                <p>Saturday: 10:00 AM - 4:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form fade-in delay-1">
+                    <div class="form-status" id="formStatus"></div>
+                    <form id="contactForm" action="https://formspree.io/f/mblqdzyj" method="POST">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" class="form-control" placeholder="Enter your name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" class="form-control" placeholder="Enter your phone number" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="service">Service Interested In</label>
+                            <select id="service" name="service" class="form-control" required>
+                                <option value="">Select a service</option>
+                                <option value="web">Website Development</option>
+                                <option value="ecommerce">E-commerce Setup</option>
+                                <option value="social">Social Media Management</option>
+                                <option value="ads">Paid Advertising</option>
+                                <option value="email">Email/SMS Marketing</option>
+                                <option value="ai">AI Chatbot + CRM</option>
+                                <option value="full">Full Package</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" name="message" class="form-control" placeholder="Tell us about your project" rows="5"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="contact-btn" style="width: 100%;">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>Elite Hostings & IT Services</h3>
+                    <p>We provide end-to-end digital growth systems for brands. You focus on your product — we handle the entire digital ecosystem.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#process">Process</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Our Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">High-end Website Development</a></li>
+                        <li><a href="#">E-commerce Setup & Automation</a></li>
+                        <li><a href="#">Social Media Management</a></li>
+                        <li><a href="#">Paid Advertising</a></li>
+                        <li><a href="#">AI Chatbot + CRM Automation</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> Gujarat, India</li>
+                        <li><i class="fas fa-phone"></i> +91 9909708074</li>
+                        <li><i class="fas fa-clock"></i> Mon-Fri: 9AM-7PM</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Elite Hostings & IT Services. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Services Data
+        const services = [
+            {
+                icon: "fas fa-code",
+                title: "High-end Website Development",
+                description: "Custom website design and development or complete redesigns with modern technologies, responsive design, and optimal performance."
+            },
+            {
+                icon: "fas fa-shopping-cart",
+                title: "E-commerce Setup & Automation",
+                description: "Complete online store setup with payment integration, inventory management, order automation, and customer journey optimization."
+            },
+            {
+                icon: "fas fa-hashtag",
+                title: "Social Media Management",
+                description: "Daily content creation, community management, influencer partnerships, and strategy for all major social platforms."
+            },
+            {
+                icon: "fas fa-bullhorn",
+                title: "Paid Advertising",
+                description: "Targeted advertising campaigns on Google, Facebook, Instagram, LinkedIn with A/B testing, optimization, and detailed analytics."
+            },
+            {
+                icon: "fas fa-envelope",
+                title: "Email/SMS Marketing",
+                description: "Automated email and SMS marketing sequences, segmentation, personalization, and conversion optimization strategies."
+            },
+            {
+                icon: "fas fa-robot",
+                title: "AI Chatbot + CRM Automation",
+                description: "Intelligent chatbots for 24/7 customer service, CRM automation, lead scoring, and sales pipeline management."
+            },
+            {
+                icon: "fas fa-chart-line",
+                title: "Analytics & Reporting",
+                description: "Daily performance tracking, KPI monitoring, detailed reporting, and data-driven optimization recommendations."
+            },
+            {
+                icon: "fas fa-server",
+                title: "Full Backend Support",
+                description: "Complete technical support, hosting, maintenance, security, updates, and 24/7 monitoring for all digital assets."
+            }
+        ];
+
+        // DOM Elements
+        const themeToggle = document.getElementById('themeToggle');
+        const header = document.getElementById('header');
+        const servicesGrid = document.querySelector('.services-grid');
+        const contactForm = document.getElementById('contactForm');
+        const formStatus = document.getElementById('formStatus');
+        const statNumbers = document.querySelectorAll('.stat-number');
+
+        // Initialize services
+        function renderServices() {
+            servicesGrid.innerHTML = '';
+            
+            services.forEach((service, index) => {
+                const serviceCard = document.createElement('div');
+                serviceCard.className = `service-card fade-in${index > 3 ? ' delay-' + (index - 4) : ''}`;
+                serviceCard.innerHTML = `
+                    <div class="service-icon">
+                        <i class="${service.icon}"></i>
+                    </div>
+                    <h3>${service.title}</h3>
+                    <p>${service.description}</p>
+                    <a href="#contact" class="service-link">
+                        Get Started <i class="fas fa-arrow-right"></i>
+                    </a>
+                `;
+                servicesGrid.appendChild(serviceCard);
+            });
+        }
+
+        // Theme toggle functionality
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-theme');
+            document.body.classList.toggle('light-theme');
+            
+            // Update icon
+            const icon = themeToggle.querySelector('i');
+            if (document.body.classList.contains('dark-theme')) {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            } else {
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            }
+            
+            // Save preference
+            localStorage.setItem('theme', document.body.classList.contains('dark-theme') ? 'dark' : 'light');
+        });
+
+        // Scroll header effect
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+            
+            // Trigger animations for elements in view
+            triggerAnimations();
+        });
+
+        // Animate stats counter
+        function animateStats() {
+            statNumbers.forEach(stat => {
+                const target = parseInt(stat.getAttribute('data-count'));
+                const duration = 2000; // 2 seconds
+                const step = target / (duration / 16); // 60fps
+                let current = 0;
+                
+                const timer = setInterval(() => {
+                    current += step;
+                    if (current >= target) {
+                        stat.textContent = target;
+                        clearInterval(timer);
+                    } else {
+                        stat.textContent = Math.floor(current);
+                    }
+                }, 16);
+            });
+        }
+
+        // Check if element is in viewport
+        function isInViewport(element) {
+            const rect = element.getBoundingClientRect();
+            return (
+                rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.8
+            );
+        }
+
+        // Trigger animations when elements come into view
+        function triggerAnimations() {
+            const animatedElements = document.querySelectorAll('.fade-in:not(.animated)');
+            
+            animatedElements.forEach(element => {
+                if (isInViewport(element)) {
+                    element.classList.add('animated');
+                }
+            });
+            
+            // Animate stats when they come into view
+            const statsSection = document.querySelector('.stats');
+            if (isInViewport(statsSection)) {
+                animateStats();
+            }
+        }
+
+        // Form submission
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            
+            // Disable button and show loading
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+            
+            try {
+                const formData = new FormData(contactForm);
+                const response = await fetch(contactForm.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+                
+                if (response.ok) {
+                    formStatus.textContent = 'Thank you! Your message has been sent successfully. We\'ll contact you soon.';
+                    formStatus.classList.remove('error');
+                    formStatus.classList.add('success');
+                    contactForm.reset();
+                } else {
+                    throw new Error('Form submission failed');
+                }
+            } catch (error) {
+                formStatus.textContent = 'Oops! There was a problem sending your message. Please try again or call us directly at +91 9909708074.';
+                formStatus.classList.remove('success');
+                formStatus.classList.add('error');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalText;
+                
+                // Hide status message after 5 seconds
+                setTimeout(() => {
+                    formStatus.classList.remove('success', 'error');
+                    formStatus.style.display = 'none';
+                }, 5000);
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (window.innerWidth <= 768) {
+                        const navUl = document.querySelector('nav ul');
+                        if (navUl) navUl.style.display = 'none';
+                    }
+                }
+            });
+        });
+
+        // Mobile menu toggle
+        function initMobileMenu() {
+            if (window.innerWidth <= 768) {
+                const nav = document.querySelector('nav ul');
+                const logo = document.querySelector('.logo');
+                
+                if (nav && !document.querySelector('.menu-toggle')) {
+                    const menuToggle = document.createElement('button');
+                    menuToggle.className = 'menu-toggle';
+                    menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                    menuToggle.style.cssText = `
+                        background: none;
+                        border: none;
+                        font-size: 24px;
+                        color: var(--text-primary);
+                        cursor: pointer;
+                        margin-left: 20px;
+                    `;
+                    
+                    logo.parentNode.insertBefore(menuToggle, logo.nextSibling);
+                    
+                    menuToggle.addEventListener('click', () => {
+                        if (nav.style.display === 'flex') {
+                            nav.style.display = 'none';
+                            menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                        } else {
+                            nav.style.display = 'flex';
+                            nav.style.flexDirection = 'column';
+                            nav.style.position = 'absolute';
+                            nav.style.top = '100%';
+                            nav.style.left = '0';
+                            nav.style.width = '100%';
+                            nav.style.backgroundColor = 'var(--nav-bg)';
+                            nav.style.padding = '20px';
+                            nav.style.boxShadow = 'var(--shadow)';
+                            nav.style.borderTop = '1px solid var(--border-color)';
+                            menuToggle.innerHTML = '<i class="fas fa-times"></i>';
+                        }
+                    });
+                }
+            }
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            // Load saved theme
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark-theme');
+                document.body.classList.remove('light-theme');
+                themeToggle.querySelector('i').classList.remove('fa-moon');
+                themeToggle.querySelector('i').classList.add('fa-sun');
+            }
+            
+            renderServices();
+            triggerAnimations();
+            initMobileMenu();
+            
+            // Initial check for animations
+            setTimeout(triggerAnimations, 300);
+        });
+
+        // Handle window resize
+        window.addEventListener('resize', initMobileMenu);
+    </script>
+</body>
+</html>
